@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://im5m4xmwxrte"]
+
+[ext_resource type="Script" uid="uid://busfnht7vxnbl" path="res://Scripts/Entities/ennemy.gd" id="1_k18kc"]
+[ext_resource type="Texture2D" uid="uid://ne3rxmvjvquo" path="res://Sprites/Enemies/paschillguy.png" id="2_lx24l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3s3n"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k18kc"]
+size = Vector2(14, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx24l"]
+size = Vector2(20, 4)
+
+[node name="Ennemy" type="Node2D" unique_id=255993983]
+script = ExtResource("1_k18kc")
+
+[node name="EnemyBody" type="CharacterBody2D" parent="." unique_id=1984411229]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody" unique_id=1817699251]
+shape = SubResource("RectangleShape2D_b3s3n")
+
+[node name="BodyKillzone" type="Area2D" parent="EnemyBody" unique_id=1644417523]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/BodyKillzone" unique_id=1222324519]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_k18kc")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBody/BodyKillzone" unique_id=1193882400]
+scale = Vector2(0.07, 0.03)
+texture = ExtResource("2_lx24l")
+
+[node name="Stomp" type="Area2D" parent="EnemyBody" unique_id=923723131]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/Stomp" unique_id=1058021750]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_lx24l")
+
+[connection signal="body_entered" from="EnemyBody/BodyKillzone" to="." method="_on_body_killzone_body_entered"]
+[connection signal="body_entered" from="EnemyBody/Stomp" to="." method="_on_stomp_body_entered"]

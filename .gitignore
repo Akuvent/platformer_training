@@ -1,0 +1,16 @@
+# Godot 4
+.godot/
+*.translation
+
+# Export
+export.cfg
+export_presets.cfg
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Python (if you use helper scripts)
+__pycache__/
+*.pyc

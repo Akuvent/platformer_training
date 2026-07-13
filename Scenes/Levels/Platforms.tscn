@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckomh4tconqbm"]
+
+[node name="Platforms" type="Node2D" unique_id=820448950]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=335794186]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1214441878]
+
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatableBody2D" unique_id=728281913]
+
+[node name="Sprite2D3" type="Sprite2D" parent="AnimatableBody2D" unique_id=2121748035]

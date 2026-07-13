@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://rxq6blndse5k"]
+
+[ext_resource type="Script" uid="uid://b6sgxtc1klbl4" path="res://Scripts/Entities/player.gd" id="1_v402d"]
+[ext_resource type="Texture2D" uid="uid://dmud1evm8c4hq" path="res://Sprites/player.png" id="2_v402d"]
+[ext_resource type="Script" uid="uid://ctc3j2an0146w" path="res://Scripts/Entities/camera_2d.gd" id="3_agccv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v402d"]
+
+[node name="Player" type="Node2D" unique_id=1716362057]
+script = ExtResource("1_v402d")
+
+[node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=1439762817 groups=["Player"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 25
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="PlayerBody" unique_id=1713089005]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CapsuleShape2D_v402d")
+
+[node name="PlayerSprite" type="Sprite2D" parent="PlayerBody" unique_id=1129954611]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(0.073333345, 0.10666667)
+texture = ExtResource("2_v402d")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody" unique_id=1070814704]
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("3_agccv")
