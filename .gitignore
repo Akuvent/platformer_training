@@ -14,3 +14,6 @@ Thumbs.db
 # Python (if you use helper scripts)
 __pycache__/
 *.pyc
+
+# Local auto-commit safety net (per-machine, not shared)
+.cursor-autocommit/
