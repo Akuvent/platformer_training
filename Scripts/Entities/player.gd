@@ -26,11 +26,13 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction = 1 
 		playerSprite.flip_h = true
-	if direction != 0:
-		player.velocity.x = move_toward(player.velocity.x, direction * speed, acceleration * delta)
-	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, friction * delta)
-	
+	if player.is_on_floor():
+		if direction != 0:
+			player.velocity.x = move_toward(player.velocity.x, direction * speed, acceleration * delta)
+		else:
+			player.velocity.x = move_toward(player.velocity.x, 0, friction * delta)
+	elif direction != 0:
+		player.velocity.x = direction * speed
 	
 	if not player.is_on_floor():
 		coyote_timer = coyote_timer - delta

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cnl1tl7n760y7"]
 
+[ext_resource type="Script" uid="uid://bdwp4q4e3a134" path="res://Scenes/Entities/coins.gd" id="1_a1hs3"]
 [ext_resource type="Texture2D" uid="uid://c3664h3liwnng" path="res://Sprites/Animated/coin1_16x16.png" id="1_afbhq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1hs3"]
@@ -112,12 +113,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afbhq"]
+size = Vector2(14, 14)
+
 [node name="Coin" type="Node2D" unique_id=161642262]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_a1hs3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1583273981]
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=734202224]
 sprite_frames = SubResource("SpriteFrames_r0t0x")
+autoplay = "default"
+frame_progress = 0.017713666
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1720071320]
+shape = SubResource("RectangleShape2D_afbhq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

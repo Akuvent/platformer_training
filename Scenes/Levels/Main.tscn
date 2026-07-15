@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cmwobd5qo4n6a" path="res://Scripts/Levels/world_border.gd" id="4_wb"]
 [ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="5_enemy"]
 [ext_resource type="SpriteFrames" uid="uid://d26vpiunvgsmp" path="res://Resources/death_sprite_frames.tres" id="6_death"]
+[ext_resource type="PackedScene" uid="uid://cnl1tl7n760y7" path="res://Scenes/Entities/Coins.tscn" id="7_oi5um"]
 [ext_resource type="PackedScene" uid="uid://ckomh4tconqbm" path="res://Scenes/Levels/Platforms.tscn" id="7_r66ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_main"]
@@ -745,6 +746,13 @@ position = Vector2(593, 236)
 
 [node name="Platforms" parent="Interactables" unique_id=820448950 instance=ExtResource("7_r66ge")]
 position = Vector2(723, 241)
+
+[node name="Coin" parent="Interactables" unique_id=161642262 instance=ExtResource("7_oi5um")]
+position = Vector2(542, 210)
+
+[node name="Coin2" parent="Interactables" unique_id=1457466320 instance=ExtResource("7_oi5um")]
+position = Vector2(262, 162)
+scale = Vector2(0.5625, 0.5625)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="WorldBorder" to="WorldBorder" method="_on_body_entered"]
