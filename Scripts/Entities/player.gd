@@ -1,7 +1,5 @@
 extends Node2D
 var speed = 150
-var acceleration = 800.0
-var friction = 1000.0 
 var gravity = 980
 var jump_power = -400
 var fall_time = 0.0
@@ -12,6 +10,7 @@ var was_falling = false
 var stomp_bounce = false
 var coyote_time = 0.12
 var coyote_timer = 0.0
+var air_mult = 1
 @onready var player = $PlayerBody
 @onready var playerSprite = $PlayerBody/PlayerSprite
 signal died
@@ -26,15 +25,11 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction = 1 
 		playerSprite.flip_h = true
-	if player.is_on_floor():
-		if direction != 0:
-			player.velocity.x = move_toward(player.velocity.x, direction * speed, acceleration * delta)
-		else:
-			player.velocity.x = move_toward(player.velocity.x, 0, friction * delta)
-	elif direction != 0:
-		player.velocity.x = direction * speed
+	player.velocity.x = direction * speed * air_mult
+	
 	
 	if not player.is_on_floor():
+		air_mult = 1.5
 		coyote_timer = coyote_timer - delta
 		if player.velocity.y < 0:
 			playerSprite.rotation = 320
@@ -48,6 +43,7 @@ func _physics_process(delta):
 		player.velocity.y = jump_power
 		coyote_timer = 0
 	elif player.is_on_floor() and not Input.is_action_just_pressed("jump") and not stomp_bounce:
+		air_mult = 1
 		playerSprite.rotation = 0
 		fall_time = 0.0
 		player.velocity.y = 0
