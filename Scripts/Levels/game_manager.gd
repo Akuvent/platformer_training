@@ -26,9 +26,11 @@ func _on_timer_timeout():
 
 
 func _on_ennemy_enemydied():
-	score = score + 100
-	score_label.text = "Score: " + str(score)
+	add_score()
 
 func _on_coin_coin_pickup():
+	add_score()
+
+func add_score():
 	score = score + 100
 	score_label.text = "Score: " + str(score)
