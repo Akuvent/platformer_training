@@ -386,42 +386,6 @@ region = Rect2(512, 2304, 128, 128)
 atlas = ExtResource("1_death")
 region = Rect2(0, 2432, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_96"]
-atlas = ExtResource("1_death")
-region = Rect2(128, 2432, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_97"]
-atlas = ExtResource("1_death")
-region = Rect2(256, 2432, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_98"]
-atlas = ExtResource("1_death")
-region = Rect2(384, 2432, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_99"]
-atlas = ExtResource("1_death")
-region = Rect2(512, 2432, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_100"]
-atlas = ExtResource("1_death")
-region = Rect2(0, 2560, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_101"]
-atlas = ExtResource("1_death")
-region = Rect2(128, 2560, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_102"]
-atlas = ExtResource("1_death")
-region = Rect2(256, 2560, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_103"]
-atlas = ExtResource("1_death")
-region = Rect2(384, 2560, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_104"]
-atlas = ExtResource("1_death")
-region = Rect2(512, 2560, 128, 128)
-
 [resource]
 animations = [{
 "frames": [{
@@ -712,33 +676,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_95")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_96")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_97")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_98")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_99")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_100")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_101")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_102")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_103")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_104")
 }],
 "loop": true,
 "name": &"default",

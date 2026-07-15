@@ -14,7 +14,7 @@ func _ready():
 func _physics_process(delta):
 	platform.position.x += speed * direction * delta
 
-	if platform.position.x <= start_x - patrol_distance:
+	if platform.position.x <= start_x:
 		direction = 1
 	elif platform.position.x >= start_x + patrol_distance:
 		direction = -1
