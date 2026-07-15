@@ -1,5 +1,7 @@
 extends Node2D
 var speed = 150
+var acceleration = 800.0
+var friction = 1000.0 
 var gravity = 980
 var jump_power = -400
 var fall_time = 0.0
@@ -24,7 +26,10 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction = 1 
 		playerSprite.flip_h = true
-	player.velocity.x = direction * speed
+	if direction != 0:
+		player.velocity.x = move_toward(player.velocity.x, direction * speed, acceleration * delta)
+	else:
+		player.velocity.x = move_toward(player.velocity.x, 0, friction * delta)
 	
 	
 	if not player.is_on_floor():
