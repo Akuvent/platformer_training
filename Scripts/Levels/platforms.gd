@@ -1,15 +1,20 @@
 extends Node2D
 
 @onready var platform = $Platform
-@onready var left_point = $LeftPoint
-@onready var right_point = $RightPoint
-var speed = 80.0
-var direction = -1
 
+@export var speed := 80.0
+@export var patrol_distance := 64.0  
+
+var direction := -1
+var start_x: float
+
+func _ready():
+	start_x = platform.position.x
 
 func _physics_process(delta):
 	platform.position.x += speed * direction * delta
-	if direction < 0 and platform.position.x <= left_point.position.x:
+
+	if platform.position.x <= start_x - patrol_distance:
 		direction = 1
-	elif direction > 0 and platform.position.x >= right_point.position.x:
+	elif platform.position.x >= start_x + patrol_distance:
 		direction = -1

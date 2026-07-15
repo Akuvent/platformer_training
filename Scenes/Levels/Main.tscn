@@ -744,8 +744,7 @@ position = Vector2(593, 236)
 [node name="Interactables" type="Node" parent="." unique_id=2099605574]
 
 [node name="Platforms" parent="Interactables" unique_id=820448950 instance=ExtResource("7_r66ge")]
-position = Vector2(726, 232)
-scale = Vector2(0.25, 0.25)
+position = Vector2(723, 241)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="WorldBorder" to="WorldBorder" method="_on_body_entered"]

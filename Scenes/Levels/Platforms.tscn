@@ -12,6 +12,7 @@ size = Vector2(191, 50)
 script = ExtResource("1_8scm1")
 
 [node name="Platform" type="AnimatableBody2D" parent="." unique_id=335794186]
+scale = Vector2(0.25, 0.25)
 
 [node name="PlatformLeft" type="Sprite2D" parent="Platform" unique_id=1214441878]
 texture = ExtResource("1_gx0ng")
