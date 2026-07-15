@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cmwobd5qo4n6a" path="res://Scripts/Levels/world_border.gd" id="4_wb"]
 [ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="5_enemy"]
 [ext_resource type="SpriteFrames" uid="uid://d26vpiunvgsmp" path="res://Resources/death_sprite_frames.tres" id="6_death"]
+[ext_resource type="PackedScene" uid="uid://ckomh4tconqbm" path="res://Scenes/Levels/Platforms.tscn" id="7_r66ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_main"]
 texture = ExtResource("3_tiles")
@@ -739,6 +740,12 @@ position = Vector2(320, 180)
 
 [node name="Ennemy2" parent="Entities" unique_id=1515323907 instance=ExtResource("5_enemy")]
 position = Vector2(593, 236)
+
+[node name="Interactables" type="Node" parent="." unique_id=2099605574]
+
+[node name="Platforms" parent="Interactables" unique_id=820448950 instance=ExtResource("7_r66ge")]
+position = Vector2(726, 232)
+scale = Vector2(0.25, 0.25)
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="WorldBorder" to="WorldBorder" method="_on_body_entered"]
