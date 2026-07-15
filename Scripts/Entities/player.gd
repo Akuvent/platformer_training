@@ -10,7 +10,7 @@ var was_falling = false
 var stomp_bounce = false
 var coyote_time = 0.12
 var coyote_timer = 0.0
-var air_mult = 1
+@export var air_mult = 1
 @onready var player = $PlayerBody
 @onready var playerSprite = $PlayerBody/PlayerSprite
 signal died
@@ -18,7 +18,10 @@ signal died
 
 func _physics_process(delta):
 	var direction = 0
-	
+	if player.is_on_floor():
+		air_mult = 1.0
+	else:
+		air_mult = 1.5
 	if Input.is_action_pressed("move_left"):
 		direction = -1
 		playerSprite.flip_h = false
@@ -29,7 +32,6 @@ func _physics_process(delta):
 	
 	
 	if not player.is_on_floor():
-		air_mult = 1.5
 		coyote_timer = coyote_timer - delta
 		if player.velocity.y < 0:
 			playerSprite.rotation = 320
