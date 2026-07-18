@@ -57,7 +57,9 @@ func _physics_process(delta):
 	player.move_and_slide()
 	for i in player.get_slide_collision_count():
 		var block = player.get_slide_collision(i).get_collider().get_parent()
-		if block.has_method("hit_from_below"):
+		var collision = player.get_slide_collision(i)
+		var normal = collision.get_normal()
+		if block.has_method("hit_from_below") and normal.y > 0:
 			block.hit_from_below()
 	
 	
