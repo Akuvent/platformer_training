@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://brq6fa2hjx23e"]
 
+[ext_resource type="Script" uid="uid://vy7mxjuy0sqa" path="res://Scenes/Entities/chanceblocks.gd" id="1_d47y6"]
 [ext_resource type="Texture2D" uid="uid://chp1vxduowg7f" path="res://Sprites/Tiles/Default/block_exclamation_active.png" id="1_mjbg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d47y6"]
 size = Vector2(64, 64)
 
 [node name="ChanceBlock" type="Node2D" unique_id=1331786134]
+script = ExtResource("1_d47y6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=419132076]
 

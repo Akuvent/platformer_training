@@ -14,6 +14,7 @@ var coyote_timer = 0.0
 @onready var player = $PlayerBody
 @onready var playerSprite = $PlayerBody/PlayerSprite
 signal died
+signal bonked
 
 
 func _physics_process(delta):
@@ -53,7 +54,10 @@ func _physics_process(delta):
 	stomp_bounce = false
 	was_falling = player.velocity.y > 0
 	player.move_and_slide()
-
+	if is_on_ceiling():
+		bonked.emit
+	
+	
 func die():
 	if is_dead:
 		return
