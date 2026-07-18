@@ -745,7 +745,7 @@ position = Vector2(593, 236)
 [node name="Interactables" type="Node" parent="." unique_id=2099605574]
 
 [node name="Platforms" parent="Interactables" unique_id=820448950 instance=ExtResource("7_r66ge")]
-position = Vector2(723, 241)
+position = Vector2(736, 256)
 
 [node name="Coin" parent="Interactables" unique_id=161642262 instance=ExtResource("7_oi5um")]
 position = Vector2(542, 210)
