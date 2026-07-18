@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chp1vxduowg7f" path="res://Sprites/Tiles/Default/block_exclamation_active.png" id="1_mjbg1"]
 [ext_resource type="PackedScene" uid="uid://cnl1tl7n760y7" path="res://Scenes/Entities/Coins.tscn" id="2_3je21"]
 [ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="3_7jg4f"]
+[ext_resource type="Texture2D" uid="uid://cn5r6btspvqfd" path="res://Sprites/Tiles/Default/block_exclamation.png" id="5_7jg4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d47y6"]
 size = Vector2(64, 64)
@@ -14,10 +15,14 @@ script = ExtResource("1_d47y6")
 coin_scene = ExtResource("2_3je21")
 ennemy_scene = ExtResource("3_7jg4f")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=419132076]
+[node name="ChanceBlockBody" type="StaticBody2D" parent="." unique_id=419132076]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=232232218]
+[node name="ChanceBlockOn" type="Sprite2D" parent="ChanceBlockBody" unique_id=232232218]
 texture = ExtResource("1_mjbg1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1235999909]
+[node name="ChanceBlockCollider" type="CollisionShape2D" parent="ChanceBlockBody" unique_id=1235999909]
 shape = SubResource("RectangleShape2D_d47y6")
+
+[node name="ChanceBlockOff" type="Sprite2D" parent="ChanceBlockBody" unique_id=682106928]
+visible = false
+texture = ExtResource("5_7jg4f")
