@@ -55,10 +55,10 @@ func _physics_process(delta):
 	stomp_bounce = false
 	was_falling = player.velocity.y > 0
 	player.move_and_slide()
-	if player.is_on_ceiling():
+	for i in player.get_slide_collision_count():
 		var block = player.get_slide_collision(i).get_collider().get_parent()
-		if block.has_method("bonked"):
-			block.bonked
+		if block.has_method("hit_from_below"):
+			block.hit_from_below()
 	
 	
 func die():
