@@ -1,8 +1,7 @@
 extends Node2D
 @export var coin_scene: PackedScene
 @export var ennemy_scene: PackedScene
-var is_spawning = false
-var used = false
+var is_spawning = false	
 var can_hit = true
 @export var uses = 1 
 @onready var game_manager = $"../../GameManager"
@@ -11,7 +10,7 @@ var can_hit = true
 
 
 func hit_from_below():
-	if is_spawning == 1 or uses == 0:
+	if is_spawning or uses == 0:
 		return
 	can_hit = false
 	uses -= 1
@@ -24,20 +23,23 @@ func hit_from_below():
 		coin.CoinPickup.connect(game_manager._on_coin_coin_pickup)
 		coin.global_position = global_position
 		var tween = create_tween()
-		tween.tween_property(coin, "position:y", coin.global_position.y - 16, 0.2)
+		tween.tween_property(coin, "global_position:y", coin.global_position.y - 16, 0.2)
 		tween.finished.connect(func():
+			can_hit = true
 			is_spawning = false)
-		can_hit = true
+		
 	if choice == 2:
 		get_parent().add_child(ennemy)
 		ennemy.set_physics_process(false)
 		ennemy.global_position = global_position
 		var tween = create_tween()
+		tween.tween_property(ennemy, "global_position:y", ennemy.global_position.y - 16, 1)
 		tween.finished.connect(func():
 			ennemy.set_physics_process(true)
+			can_hit = true
 			is_spawning = false)
-		tween.tween_property(ennemy, "position:y", ennemy.global_position.y - 16, 1)
-		can_hit = true
+
+		
 
 func _physics_process(delta):
 	if uses == 0:
