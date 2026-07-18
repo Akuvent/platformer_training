@@ -1,8 +1,9 @@
 extends Node2D
 @export var coin_scene: PackedScene
 @export var ennemy_scene: PackedScene
-var is_spawning = 0
+var is_spawning = false
 var used = false
+var can_hit = true
 @export var uses = 1 
 @onready var game_manager = $"../../GameManager"
 @onready var off = $ChanceBlockBody/ChanceBlockOff
@@ -12,7 +13,9 @@ var used = false
 func hit_from_below():
 	if is_spawning == 1 or uses == 0:
 		return
-	is_spawning = 1
+	can_hit = false
+	uses -= 1
+	is_spawning = true
 	var coin = coin_scene.instantiate()
 	var ennemy = ennemy_scene.instantiate()
 	var choice = randi_range(1,2)
@@ -23,9 +26,8 @@ func hit_from_below():
 		var tween = create_tween()
 		tween.tween_property(coin, "position:y", coin.global_position.y - 16, 0.2)
 		tween.finished.connect(func():
-			uses -= 1
-			is_spawning = 0)
-		uses = uses - 1
+			is_spawning = false)
+		can_hit = true
 	if choice == 2:
 		get_parent().add_child(ennemy)
 		ennemy.set_physics_process(false)
@@ -33,10 +35,9 @@ func hit_from_below():
 		var tween = create_tween()
 		tween.finished.connect(func():
 			ennemy.set_physics_process(true)
-			uses -= 1
-			is_spawning = 0)
+			is_spawning = false)
 		tween.tween_property(ennemy, "position:y", ennemy.global_position.y - 16, 1)
-		
+		can_hit = true
 
 func _physics_process(delta):
 	if uses == 0:
