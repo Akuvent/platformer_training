@@ -1,7 +1,7 @@
 extends Node2D
-var speed = 150
-var gravity = 980
-var jump_power = -400
+@export var speed = 150
+@export var gravity = 980
+@export var jump_power = -400
 var fall_time = 0.0
 var max_fall_mult = 6.0
 var max_fall_speed = 1800
@@ -10,6 +10,7 @@ var was_falling = false
 var stomp_bounce = false
 var coyote_time = 0.12
 var coyote_timer = 0.0
+var i = 0
 @export var air_mult = 1
 @onready var player = $PlayerBody
 @onready var playerSprite = $PlayerBody/PlayerSprite
@@ -54,8 +55,10 @@ func _physics_process(delta):
 	stomp_bounce = false
 	was_falling = player.velocity.y > 0
 	player.move_and_slide()
-	if is_on_ceiling():
-		bonked.emit
+	if player.is_on_ceiling():
+		var block = player.get_slide_collision(i).get_collider().get_parent()
+		if block.has_method("bonked"):
+			block.bonked
 	
 	
 func die():
