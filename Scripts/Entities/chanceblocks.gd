@@ -23,6 +23,7 @@ func hit_from_below():
 		var tween = create_tween()
 		tween.tween_property(coin, "position:y", coin.global_position.y - 16, 0.2)
 		tween.finished.connect(func():
+			uses -= 1
 			is_spawning = 0)
 		uses = uses - 1
 	if choice == 2:
@@ -32,9 +33,10 @@ func hit_from_below():
 		var tween = create_tween()
 		tween.finished.connect(func():
 			ennemy.set_physics_process(true)
+			uses -= 1
 			is_spawning = 0)
 		tween.tween_property(ennemy, "position:y", ennemy.global_position.y - 16, 1)
-		uses = uses - 1
+		
 
 func _physics_process(delta):
 	if uses == 0:
