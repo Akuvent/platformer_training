@@ -1,28 +1,19 @@
 [gd_scene format=3 uid="uid://dsuoeyqr1tx41"]
 
-[ext_resource type="Script" uid="uid://vy7mxjuy0sqa" path="res://Scripts/Entities/chanceblocks.gd" id="1_qshyf"]
-[ext_resource type="PackedScene" uid="uid://cnl1tl7n760y7" path="res://Scenes/Entities/Coins.tscn" id="2_0inya"]
-[ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="3_gtivc"]
-[ext_resource type="Texture2D" uid="uid://chp1vxduowg7f" path="res://Sprites/Tiles/Default/block_exclamation_active.png" id="4_ucpt8"]
-[ext_resource type="Texture2D" uid="uid://cn5r6btspvqfd" path="res://Sprites/Tiles/Default/block_exclamation.png" id="5_yypog"]
+[ext_resource type="Script" uid="uid://v4ks1rynaa2d" path="res://Scenes/Entities/bricks.gd" id="1_alwf7"]
+[ext_resource type="Texture2D" uid="uid://lwe1opemsclh" path="res://Sprites/Tiles/Default/block_planks.png" id="2_xrsto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d47y6"]
 size = Vector2(64, 64)
 
 [node name="ChanceBlock" type="Node2D" unique_id=1331786134]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_qshyf")
-coin_scene = ExtResource("2_0inya")
-ennemy_scene = ExtResource("3_gtivc")
+script = ExtResource("1_alwf7")
 
 [node name="ChanceBlockBody" type="StaticBody2D" parent="." unique_id=419132076]
 
 [node name="ChanceBlockOn" type="Sprite2D" parent="ChanceBlockBody" unique_id=232232218]
-texture = ExtResource("4_ucpt8")
+texture = ExtResource("2_xrsto")
 
 [node name="ChanceBlockCollider" type="CollisionShape2D" parent="ChanceBlockBody" unique_id=1235999909]
 shape = SubResource("RectangleShape2D_d47y6")
-
-[node name="ChanceBlockOff" type="Sprite2D" parent="ChanceBlockBody" unique_id=682106928]
-visible = false
-texture = ExtResource("5_yypog")
