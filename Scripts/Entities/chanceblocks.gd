@@ -17,8 +17,8 @@ func hit_from_below():
 	is_spawning = true
 	var coin = coin_scene.instantiate()
 	var ennemy = ennemy_scene.instantiate()
-	var choice = randi_range(1,2)
-	if choice == 1:
+	var choice = randi_range(1,100)
+	if choice <= 66:
 		get_parent().add_child(coin)
 		coin.CoinPickup.connect(game_manager._on_coin_coin_pickup)
 		coin.global_position = global_position
@@ -28,7 +28,7 @@ func hit_from_below():
 			can_hit = true
 			is_spawning = false)
 		
-	if choice == 2:
+	else:
 		get_parent().add_child(ennemy)
 		ennemy.set_physics_process(false)
 		ennemy.global_position = global_position

@@ -27,4 +27,6 @@ texture = ExtResource("2_v402d")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody" unique_id=1070814704]
 zoom = Vector2(1.5, 1.5)
+limit_top = -9999970
+position_smoothing_enabled = true
 script = ExtResource("3_agccv")
