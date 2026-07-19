@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsuoeyqr1tx41"]
 
-[ext_resource type="Script" uid="uid://v4ks1rynaa2d" path="res://Scenes/Entities/bricks.gd" id="1_alwf7"]
+[ext_resource type="Script" uid="uid://v4ks1rynaa2d" path="res://Scripts/Entities/bricks.gd" id="1_alwf7"]
 [ext_resource type="Texture2D" uid="uid://lwe1opemsclh" path="res://Sprites/Tiles/Default/block_planks.png" id="2_xrsto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d47y6"]

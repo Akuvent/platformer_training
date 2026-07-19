@@ -120,7 +120,6 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="Coin" type="Node2D" unique_id=161642262]
-scale = Vector2(0.75, 0.75)
 script = ExtResource("1_a1hs3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1583273981]
