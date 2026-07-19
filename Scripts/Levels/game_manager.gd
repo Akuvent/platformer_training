@@ -10,7 +10,7 @@ func _ready():
 	for enemy in get_node("../Entities").get_children():
 		if enemy.has_signal("enemydied"):
 			enemy.enemydied.connect(_on_ennemy_enemydied)
-	for node in get_node("../Interactables").get_children():
+	for node in get_node("../Interactables/Coins").get_children():
 		if node.has_signal("CoinPickup"):
 			node.CoinPickup.connect(_on_coin_coin_pickup)
 func _on_player_died():
