@@ -16,7 +16,6 @@ var coyote_timer = 0.0
 var base_sprite_scale := Vector2.ONE
 var scale_tween: Tween
 signal died
-signal bonked
 
 
 func _ready():
