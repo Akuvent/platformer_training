@@ -6,7 +6,6 @@ extends Node
 @onready var death_anim = $"../HUD/DeathScreen/DeathAnim"
 @onready var win_screen = get_node("../HUD/WinScreen")
 var won = false
-var score = 0
 
 func _ready():
 	for enemy in get_node("../Entities").get_children():
@@ -15,49 +14,57 @@ func _ready():
 	for node in get_node("../Interactables/Coins").get_children():
 		if node.has_signal("CoinPickup"):
 			node.CoinPickup.connect(_on_coin_coin_pickup)
+	_sync_score_label()
+
+
+func _sync_score_label() -> void:
+	score_label.text = "Score: " + str(GameState.score)
+
+
+func add_score(amount: int = 100) -> void:
+	GameState.add_points(amount)
+	_sync_score_label()
+
+
 func _on_player_died():
 	death_screen.show()
 	death_anim.frame = 0
 	death_anim.play("default")
 	death_timer.start()
+	GameState.reset_score()
 	await death_timer.timeout
 	get_tree().reload_current_scene()
-
 
 
 func _on_ennemy_enemydied():
 	add_score()
 
+
 func _on_coin_coin_pickup():
 	add_score()
-
-func add_score():
-	score = score + 100
-	score_label.text = "Score: " + str(score)
 
 
 func _on_button_pressed():
 	get_tree().reload_current_scene()
 
+
 func _on_next_level_pressed():
 	get_tree().reload_current_scene()
-	
+
+
 func _on_flag_win():
 	if won:
 		return
-	else:
-		won = true
-		win_screen.show()
-		score = score + 500
-		score_label.text = "Score: " + str(score)
-		player.set_physics_process(false)
+	won = true
+	win_screen.show()
+	add_score(500)
+	player.set_physics_process(false)
+
 
 func _on_flag_super_win():
 	if won:
 		return
-	else:
-		won = true
-		win_screen.show()
-		score = score + 1000
-		score_label.text = "Score: " + str(score)
-		player.set_physics_process(false)
+	won = true
+	win_screen.show()
+	add_score(1000)
+	player.set_physics_process(false)

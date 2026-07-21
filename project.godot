@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-score="*uid://c0opbogvixl04"
+GameState="*uid://c0opbogvixl04"
 
 [display]
 
