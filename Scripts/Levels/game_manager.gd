@@ -5,6 +5,7 @@ extends Node
 @onready var score_label = $"../HUD/score"
 @onready var death_anim = $"../HUD/DeathScreen/DeathAnim"
 @onready var win_screen = get_node("../HUD/WinScreen")
+var won = false
 var score = 0
 
 func _ready():
@@ -42,12 +43,20 @@ func _on_button_pressed():
 
 
 func _on_flag_win():
-	win_screen.show()
-	score = score + 500
-	score_label.text = "Score: " + str(score)
+	if won:
+		return
+	else:
+		won = true
+		win_screen.show()
+		score = score + 500
+		score_label.text = "Score: " + str(score)
 
 
 func _on_flag_super_win():
-	win_screen.show()
-	score = score + 1000
-	score_label.text = "Score: " + str(score)
+	if won:
+		return
+	else:
+		won = true
+		win_screen.show()
+		score = score + 1000
+		score_label.text = "Score: " + str(score)
