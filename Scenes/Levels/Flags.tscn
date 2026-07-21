@@ -44,6 +44,8 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_kt3cj")
 
 [node name="PoleArea" type="Area2D" parent="." unique_id=1976135520]
+collision_layer = 2
+collision_mask = 3
 
 [node name="PoleCollision" type="CollisionShape2D" parent="PoleArea" unique_id=9956195]
 position = Vector2(2.5, -24)
@@ -54,9 +56,11 @@ position = Vector2(8, -56)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_jk3ho")
 autoplay = "default"
-frame_progress = 0.1513114
+frame_progress = 0.6902143
 
 [node name="FlagArea" type="Area2D" parent="." unique_id=1067477939]
+collision_layer = 2
+collision_mask = 3
 
 [node name="FlagCollision" type="CollisionShape2D" parent="FlagArea" unique_id=490218150]
 position = Vector2(8, -56)

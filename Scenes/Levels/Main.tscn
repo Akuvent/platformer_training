@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ckomh4tconqbm" path="res://Scenes/Levels/Platforms.tscn" id="7_r66ge"]
 [ext_resource type="PackedScene" uid="uid://brq6fa2hjx23e" path="res://Scenes/Entities/Chanceblocks.tscn" id="9_saai4"]
 [ext_resource type="PackedScene" uid="uid://dsuoeyqr1tx41" path="res://Scenes/Entities/Bricks.tscn" id="10_nl3m6"]
+[ext_resource type="PackedScene" uid="uid://cc0vx5ueklq5h" path="res://Scenes/Levels/Flags.tscn" id="13_otbr7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wxa7"]
 texture = ExtResource("2_mv52a")
@@ -705,6 +706,41 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 text = "Score: 0"
 
+[node name="WinScreen" type="PanelContainer" parent="HUD" unique_id=1976500662]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeathAnim" type="AnimatedSprite2D" parent="HUD/WinScreen" unique_id=1014557772]
+position = Vector2(320, 180)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("6_death")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/WinScreen" unique_id=1264476148]
+layout_mode = 2
+
+[node name="LoserLabel" type="Label" parent="HUD/WinScreen/VBoxContainer" unique_id=1611488562]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.11372549, 1, 1, 1)
+theme_override_font_sizes/font_size = 160
+text = "YOU WON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="HUD/WinScreen/VBoxContainer" unique_id=1322716205]
+custom_minimum_size = Vector2(120, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_5wxa7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dm2qe")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mv52a")
+text = "Next Level"
+
 [node name="GameManager" type="Node" parent="." unique_id=1744229095]
 script = ExtResource("2_gm")
 
@@ -750,15 +786,6 @@ patrol_distance = 144.0
 position = Vector2(312, 136)
 uses = 5
 
-[node name="Brick" parent="Interactables" unique_id=1331786134 instance=ExtResource("10_nl3m6")]
-position = Vector2(296, 136)
-
-[node name="Brick2" parent="Interactables" unique_id=1665629554 instance=ExtResource("10_nl3m6")]
-position = Vector2(328, 136)
-
-[node name="Brick3" parent="Interactables" unique_id=98342869 instance=ExtResource("10_nl3m6")]
-position = Vector2(376, 152)
-
 [node name="Coins" type="Node" parent="Interactables" unique_id=2033073991]
 
 [node name="Coin3" parent="Interactables/Coins" unique_id=161642262 instance=ExtResource("7_oi5um")]
@@ -794,10 +821,26 @@ position = Vector2(264, 168)
 [node name="Coin" parent="Interactables/Coins" unique_id=878297205 instance=ExtResource("7_oi5um")]
 position = Vector2(552, 216)
 
-[node name="Brick4" parent="Interactables" unique_id=947668481 instance=ExtResource("10_nl3m6")]
+[node name="Flag" parent="Interactables" unique_id=1117614630 instance=ExtResource("13_otbr7")]
+position = Vector2(1041, 224)
+
+[node name="Bricks" type="Node" parent="Interactables" unique_id=1378393420]
+
+[node name="Brick" parent="Interactables/Bricks" unique_id=1331786134 instance=ExtResource("10_nl3m6")]
+position = Vector2(296, 136)
+
+[node name="Brick2" parent="Interactables/Bricks" unique_id=1665629554 instance=ExtResource("10_nl3m6")]
+position = Vector2(328, 136)
+
+[node name="Brick3" parent="Interactables/Bricks" unique_id=98342869 instance=ExtResource("10_nl3m6")]
+position = Vector2(376, 152)
+
+[node name="Brick4" parent="Interactables/Bricks" unique_id=947668481 instance=ExtResource("10_nl3m6")]
 position = Vector2(232, 168)
 
 [connection signal="pressed" from="HUD/DeathScreen/VBoxContainer/Button" to="GameManager" method="_on_button_pressed"]
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="WorldBorder" to="WorldBorder" method="_on_body_entered"]
 [connection signal="died" from="Entities/Player" to="GameManager" method="_on_player_died"]
+[connection signal="super_win" from="Interactables/Flag" to="GameManager" method="_on_flag_super_win"]
+[connection signal="win" from="Interactables/Flag" to="GameManager" method="_on_flag_win"]
