@@ -24,7 +24,7 @@ texture = ExtResource("3_otbr7")
 texture = ExtResource("2_mv52a")
 modulate_color = Color(0.45262197, 0.45262197, 0.45262197, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_main"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otbr7"]
 texture = ExtResource("3_tiles")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
@@ -652,7 +652,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 4294967295
-sources/0 = SubResource("TileSetAtlasSource_main")
+sources/0 = SubResource("TileSetAtlasSource_otbr7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_killbox"]
 size = Vector2(10000, 1000)
@@ -840,7 +840,7 @@ position = Vector2(264, 168)
 position = Vector2(552, 216)
 
 [node name="Flag" parent="Interactables" unique_id=1117614630 instance=ExtResource("13_otbr7")]
-position = Vector2(1041, 224)
+position = Vector2(1046, 225)
 
 [node name="Bricks" type="Node" parent="Interactables" unique_id=1378393420]
 
@@ -857,6 +857,7 @@ position = Vector2(376, 152)
 position = Vector2(232, 168)
 
 [connection signal="pressed" from="HUD/DeathScreen/VBoxContainer/Respawn" to="GameManager" method="_on_button_pressed"]
+[connection signal="pressed" from="HUD/WinScreen/Layout/NextLevel" to="GameManager" method="_on_next_level_pressed"]
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="WorldBorder" to="WorldBorder" method="_on_body_entered"]
 [connection signal="died" from="Entities/Player" to="GameManager" method="_on_player_died"]

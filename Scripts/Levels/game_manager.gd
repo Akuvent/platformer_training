@@ -23,8 +23,6 @@ func _on_player_died():
 	await death_timer.timeout
 	get_tree().reload_current_scene()
 
-func _on_timer_timeout():
-	pass
 
 
 func _on_ennemy_enemydied():
@@ -41,7 +39,9 @@ func add_score():
 func _on_button_pressed():
 	get_tree().reload_current_scene()
 
-
+func _on_next_level_pressed():
+	get_tree().reload_current_scene()
+	
 func _on_flag_win():
 	if won:
 		return
@@ -50,7 +50,7 @@ func _on_flag_win():
 		win_screen.show()
 		score = score + 500
 		score_label.text = "Score: " + str(score)
-
+		player.set_physics_process(false)
 
 func _on_flag_super_win():
 	if won:
@@ -60,3 +60,4 @@ func _on_flag_super_win():
 		win_screen.show()
 		score = score + 1000
 		score_label.text = "Score: " + str(score)
+		player.set_physics_process(false)
