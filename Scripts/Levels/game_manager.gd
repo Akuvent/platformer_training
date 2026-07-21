@@ -5,7 +5,9 @@ extends Node
 @onready var score_label = $"../HUD/score"
 @onready var death_anim = $"../HUD/DeathScreen/DeathAnim"
 @onready var win_screen = get_node("../HUD/WinScreen")
+@onready var lives_sprite = $"../HUD/LivesSprite"
 var won = false
+
 
 func _ready():
 	for enemy in get_node("../Entities").get_children():
@@ -15,7 +17,7 @@ func _ready():
 		if node.has_signal("CoinPickup"):
 			node.CoinPickup.connect(_on_coin_coin_pickup)
 	_sync_score_label()
-
+	lives_sprite.frame = GameState.lives
 
 func _sync_score_label() -> void:
 	score_label.text = "Score: " + str(GameState.score)
@@ -31,10 +33,17 @@ func _on_player_died():
 	death_anim.frame = 0
 	death_anim.play("default")
 	death_timer.start()
-	GameState.reset_score()
 	await death_timer.timeout
-	get_tree().reload_current_scene()
+	death()
 
+func _on_button_pressed():
+	death()
+
+func death():
+	GameState.hurt()
+	if GameState.lives == 0:
+		GameState.reset()
+	get_tree().reload_current_scene()
 
 func _on_ennemy_enemydied():
 	add_score()
@@ -42,10 +51,6 @@ func _on_ennemy_enemydied():
 
 func _on_coin_coin_pickup():
 	add_score()
-
-
-func _on_button_pressed():
-	get_tree().reload_current_scene()
 
 
 func _on_next_level_pressed():

@@ -29,9 +29,10 @@ func hit_from_below():
 			is_spawning = false)
 		
 	else:
-		get_parent().add_child(ennemy)
+		get_parent().add_child(ennemy) 
 		ennemy.set_physics_process(false)
 		ennemy.global_position = global_position
+		ennemy.enemydied.connect(game_manager._on_ennemy_enemydied)
 		var tween = create_tween()
 		tween.tween_property(ennemy, "global_position:y", ennemy.global_position.y - 16, 1)
 		tween.finished.connect(func():

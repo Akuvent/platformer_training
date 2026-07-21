@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mijcc1qwslvq"]
+
+[ext_resource type="Texture2D" uid="uid://d2mvklbbqy8l2" path="res://Sprites/Tiles/Default/spikes.png" id="1_isokj"]
+[ext_resource type="Script" uid="uid://bdp1dyk5yg5qk" path="res://Scripts/Levels/spikes.gd" id="1_wpnnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpnnp"]
+size = Vector2(14, 7)
+
+[node name="Spike" type="Node2D" unique_id=1381799841]
+script = ExtResource("1_wpnnp")
+
+[node name="SpikeArea" type="Area2D" parent="." unique_id=1310707506]
+collision_layer = 16
+collision_mask = 2
+
+[node name="SpikeCollision" type="CollisionShape2D" parent="SpikeArea" unique_id=1288506150]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_wpnnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpikeArea" unique_id=1509593939]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_isokj")
+
+[connection signal="body_entered" from="SpikeArea" to="." method="_on_spike_area_body_entered"]
