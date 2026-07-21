@@ -34,3 +34,7 @@ func _on_coin_coin_pickup():
 func add_score():
 	score = score + 100
 	score_label.text = "Score: " + str(score)
+
+
+func _on_button_pressed():
+	get_tree().reload_current_scene()

@@ -28,7 +28,7 @@ func _physics_process(delta):
 	if was_on_floor:
 		air_mult = 1.0
 	else:
-		air_mult = 1.5
+		air_mult = 1.2
 	if Input.is_action_pressed("move_left"):
 		direction = -1
 		playerSprite.flip_h = false
