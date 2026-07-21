@@ -1,3 +1,66 @@
 [gd_scene format=3 uid="uid://cc0vx5ueklq5h"]
 
+[ext_resource type="Texture2D" uid="uid://b3btfoti82l5y" path="res://Sprites/Tiles/Default/flag_pole.png" id="1_kt3cj"]
+[ext_resource type="Script" uid="uid://bngme02r82rhq" path="res://Scripts/Levels/flags.gd" id="1_lgrqj"]
+[ext_resource type="Texture2D" uid="uid://dqqnwxlfy0pdb" path="res://Sprites/Tiles/Default/flag_green_a.png" id="2_w7crb"]
+[ext_resource type="Texture2D" uid="uid://n3kfpfmjja7d" path="res://Sprites/Tiles/Default/flag_green_b.png" id="3_lgrqj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tgsa"]
+size = Vector2(7, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jk3ho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w7crb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lgrqj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghsxf"]
+size = Vector2(18, 16)
+
 [node name="Flag" type="Node2D" unique_id=1117614630]
+script = ExtResource("1_lgrqj")
+
+[node name="PoleTop" type="Sprite2D" parent="." unique_id=1863357319]
+position = Vector2(8, -40)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_kt3cj")
+
+[node name="PoleMiddle" type="Sprite2D" parent="." unique_id=1047044163]
+position = Vector2(8, -24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_kt3cj")
+
+[node name="PoleBottom" type="Sprite2D" parent="." unique_id=1010633803]
+position = Vector2(8, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_kt3cj")
+
+[node name="PoleArea" type="Area2D" parent="." unique_id=1976135520]
+
+[node name="PoleCollision" type="CollisionShape2D" parent="PoleArea" unique_id=9956195]
+position = Vector2(2.5, -24)
+shape = SubResource("RectangleShape2D_7tgsa")
+
+[node name="Flag" type="AnimatedSprite2D" parent="." unique_id=1912676006]
+position = Vector2(8, -56)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_jk3ho")
+autoplay = "default"
+frame_progress = 0.1513114
+
+[node name="FlagArea" type="Area2D" parent="." unique_id=1067477939]
+
+[node name="FlagCollision" type="CollisionShape2D" parent="FlagArea" unique_id=490218150]
+position = Vector2(8, -56)
+shape = SubResource("RectangleShape2D_ghsxf")
+
+[connection signal="body_entered" from="PoleArea" to="." method="_on_pole_area_body_entered"]
+[connection signal="body_entered" from="FlagArea" to="." method="_on_flag_area_body_entered"]
