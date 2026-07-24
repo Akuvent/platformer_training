@@ -26,14 +26,14 @@ collision_layer = 4
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/BodyKillzone" unique_id=1222324519]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_k18kc")
-
 [node name="Sprite2D" type="Sprite2D" parent="EnemyBody/BodyKillzone" unique_id=1193882400]
 position = Vector2(0, -1)
 scale = Vector2(0.048, 0.032)
 texture = ExtResource("2_lx24l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/BodyKillzone" unique_id=1222324519]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_k18kc")
 
 [node name="Stomp" type="Area2D" parent="EnemyBody" unique_id=923723131]
 collision_layer = 4

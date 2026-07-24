@@ -64,17 +64,10 @@ func _is_player_stomping(body: CharacterBody2D) -> bool:
 	if not descending:
 		return false
 
-	# Mostly centered horizontally over the stomp box
+	# Horizontal alignment only — high fall speed can clip fully through in one frame,
+	# so vertical "still above" checks falsely fail and the killzone wins.
 	var stomp_half_w: float = stomp_shape.shape.get_rect().size.x * 0.5 * abs(stomp_shape.global_scale.x)
 	if abs(body.global_position.x - enemy.global_position.x) > stomp_half_w + 6.0:
-		return false
-
-	# High falls tunnel through in one frame — don't require the player to still be
-	# visually "above" after the clip. Only reject if feet are clearly under the enemy.
-	var half_h: float = body_shape.shape.get_rect().size.y * 0.5 * abs(enemy.global_scale.y)
-	var enemy_bottom: float = enemy.global_position.y + half_h
-	var fall_slop: float = 4.0 + maxf(body.velocity.y, 0.0) * 0.1
-	if _get_feet_y(body) > enemy_bottom + fall_slop:
 		return false
 
 	return true

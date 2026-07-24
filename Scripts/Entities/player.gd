@@ -12,7 +12,7 @@ extends Node2D
 #region State
 var fall_time = 0.0 ## How long we've been falling (for heavy fall gravity)
 var max_fall_mult = 6.0
-var max_fall_speed = 1800
+@export var max_fall_speed = 800 ## Terminal velocity — snappy gaps, stomps handle the rest
 var is_dead = false
 var was_falling = false ## True last frame if velocity.y > 0 (used by enemy stomps)
 var stomp_bounce = false ## Skip ground snap this frame after bouncing on an enemy
