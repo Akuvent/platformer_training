@@ -54,7 +54,7 @@ func hit_from_below():
 		ennemy.set_physics_process(false) ## Freeze until the rise tween ends
 		ennemy.global_position = global_position
 		ennemy.direction = [-1, 1].pick_random()
-		ennemy.enemysprite.flip_h = max(ennemy.direction, 0)
+		ennemy._apply_facing()
 		ennemy.enemydied.connect(game_manager._on_ennemy_enemydied)
 		var tween = create_tween()
 		tween.tween_property(ennemy, "global_position:y", ennemy.global_position.y - 16, 1)

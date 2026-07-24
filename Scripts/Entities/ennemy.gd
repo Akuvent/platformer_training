@@ -8,6 +8,8 @@ extends Node2D
 #endregion
 
 #region Movement
+enum StartDirection { LEFT = -1, RIGHT = 1 }
+@export var start_direction: StartDirection = StartDirection.LEFT ## Walk left or right at spawn
 var gravity = 980
 var speed = 60
 var direction = -1 ## -1 left, 1 right
@@ -18,11 +20,7 @@ signal enemydied
 
 
 func _ready():
-	# TileMap flip-H scales the instance with scale.x < 0 — that breaks facing + velocity.
-	# Bake it into starting direction and keep scale positive.
-	if scale.x < 0.0:
-		direction *= -1
-		scale.x = abs(scale.x)
+	direction = start_direction
 	_apply_facing()
 
 
