@@ -38,12 +38,21 @@ func _is_player_stomping(body: CharacterBody2D) -> bool:
 		return false
 
 	var player: Node = body.get_parent()
-	if player.was_falling:
-		return true
+	var descending: bool = body.velocity.y > 0 or player.was_falling
+	if not descending:
+		return false
 
-	# Fallback when velocity was zeroed by landing on the solid body this frame.
 	var feet_y: float = _get_feet_y(body)
-	return feet_y <= _get_stomp_bottom_y() + 4.0
+	var stomp_bottom: float = _get_stomp_bottom_y()
+	if feet_y > stomp_bottom + 8.0:
+		return false
+
+	# Side bumps still touch the wide stomp box — require mostly centered above.
+	var stomp_half_w: float = stomp_shape.shape.get_rect().size.x * 0.5 * abs(stomp_shape.global_scale.x)
+	if abs(body.global_position.x - enemy.global_position.x) > stomp_half_w + 6.0:
+		return false
+
+	return true
 
 func _on_stomp_body_entered(body):
 	if not body.is_in_group("Player"):

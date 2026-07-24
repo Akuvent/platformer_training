@@ -1224,7 +1224,7 @@ tile_map_data = PackedByteArray("AAAHAA4AAAAMAAkAAAAGAAgAAAANAAkAAAAGAAkAAAAKAAk
 tile_set = SubResource("TileSet_main")
 
 [node name="SceneTileMap" type="TileMapLayer" parent="." unique_id=1196035129]
-tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAwACAAwAAAAAAAAAAwACAAsAAAAAAAAAAwAAAAsAAAAAAAAAAwAAAAoAAAAAAAAAAwABAAoAAAAAAAAAAwACAAoAAAAAAAAAAwANAAgAAAAAAAAAAwARAAcAAAAAAAAAAwAYAAoAAAAAAAAAAwAdAAsAAAAAAAAAAwAgAAkAAAAAAAAAAwATABAAAAAAAAAAAwAjAAwAAAAAAAAAAQAkAAwAAAAAAAAAAQAmAAwAAAAAAAAAAQAnAAwAAAAAAAAAAQApAAwAAAAAAAAAAQAqAAwAAAAAAAAAAQAoAAwAAAAAAAAAAgAlAAwAAAAAAAAAAgAkAAkAAAAAAAAAAQAlAAkAAAAAAAAAAQAmAAkAAAAAAAAAAQAnAAkAAAAAAAAAAQAoAAkAAAAAAAAAAQApAAkAAAAAAAAAAQAmAAYAAAAAAAAAAgAnAAYAAAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAAAAwAAAAAAAAAAwACAAwAAAAAAAAAAwACAAsAAAAAAAAAAwAAAAsAAAAAAAAAAwAAAAoAAAAAAAAAAwABAAoAAAAAAAAAAwACAAoAAAAAAAAAAwANAAgAAAAAAAAAAwARAAcAAAAAAAAAAwAYAAoAAAAAAAAAAwAdAAsAAAAAAAAAAwAgAAkAAAAAAAAAAwATABAAAAAAAAAAAwAjAAwAAAAAAAAAAQAkAAwAAAAAAAAAAQAmAAwAAAAAAAAAAQAnAAwAAAAAAAAAAQApAAwAAAAAAAAAAQAqAAwAAAAAAAAAAQAoAAwAAAAAAAAAAgAlAAwAAAAAAAAAAgAkAAkAAAAAAAAAAQAlAAkAAAAAAAAAAQAmAAkAAAAAAAAAAQAnAAkAAAAAAAAAAQAoAAkAAAAAAAAAAQApAAkAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_t65c0")
 
 [node name="WorldBorder" type="Area2D" parent="." unique_id=1662053342]
@@ -1264,6 +1264,16 @@ position = Vector2(3128, 136)
 
 [node name="Player" parent="." unique_id=1716362057 instance=ExtResource("1_player")]
 position = Vector2(120, 200)
+
+[node name="Interactables" type="Node" parent="." unique_id=2131039414]
+
+[node name="ChanceBlock" parent="Interactables" unique_id=1331786134 instance=ExtResource("9_saai4")]
+position = Vector2(616, 120)
+uses = 3
+
+[node name="ChanceBlock2" parent="Interactables" unique_id=512084274 instance=ExtResource("9_saai4")]
+position = Vector2(632, 120)
+uses = 3
 
 [connection signal="pressed" from="HUD/DeathScreen/VBoxContainer/Respawn" to="GameManager" method="_on_button_pressed"]
 [connection signal="pressed" from="HUD/WinScreen/Layout/NextLevel" to="GameManager" method="_on_next_level_pressed"]
