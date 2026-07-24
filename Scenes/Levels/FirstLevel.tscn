@@ -1275,8 +1275,8 @@ position = Vector2(2408, 152)
 speed = 100.0
 dir = false
 
-[node name="Node2D" parent="Entities" unique_id=521319207 instance=ExtResource("20_uxvkj")]
-position = Vector2(1880, 200)
+[node name="Checkpoint" parent="Entities" unique_id=521319207 instance=ExtResource("20_uxvkj")]
+position = Vector2(1640, 184)
 
 [node name="Platforms2" parent="Entities" unique_id=2142796631 instance=ExtResource("17_0w2n5")]
 position = Vector2(2360, 312)
