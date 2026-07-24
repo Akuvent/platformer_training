@@ -90,6 +90,7 @@ func _physics_process(delta):
 	stomp_bounce = false
 	was_falling = player.velocity.y > 0
 	var moving_up = player.velocity.y < 0
+	var was_airborne = not was_on_floor
 	player.move_and_slide()
 
 	# Landing squash
@@ -97,15 +98,24 @@ func _physics_process(delta):
 		_squash_stretch(Vector2(1.25, 0.75), 0.1)
 	#endregion
 
-	#region Hit blocks from below
-	# Only true underside hits: rising + mostly downward normal (ignores corner/side scrapes)
-	if moving_up:
-		for i in player.get_slide_collision_count():
-			var collision = player.get_slide_collision(i)
-			var block = collision.get_collider().get_parent()
-			var normal = collision.get_normal()
-			if block.has_method("hit_from_below") and normal.y > 0.7:
-				block.hit_from_below()
+	#region Block / enemy contacts (slide normals — same idea as chance blocks)
+	for i in player.get_slide_collision_count():
+		var collision = player.get_slide_collision(i)
+		var other = collision.get_collider().get_parent()
+		var normal = collision.get_normal()
+
+		# Bonk blocks from below while rising
+		if moving_up and other.has_method("hit_from_below") and normal.y > 0.7:
+			other.hit_from_below()
+			continue
+
+		# Land on enemy top → stomp; any other enemy contact → die
+		if other.has_method("receive_stomp"):
+			if (was_airborne or was_falling) and normal.y < -0.7:
+				bounce()
+				other.receive_stomp()
+			elif absf(normal.x) > 0.5 or normal.y > 0.7:
+				die()
 	#endregion
 
 

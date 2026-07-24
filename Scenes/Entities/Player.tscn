@@ -12,7 +12,7 @@ script = ExtResource("1_v402d")
 [node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=1439762817 groups=["Player"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 25
+collision_mask = 29
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="PlayerBody" unique_id=1713089005]
 light_mask = 2
