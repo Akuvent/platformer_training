@@ -59,6 +59,8 @@ func _physics_process(delta):
 ## Called by the player when they land on top (slide normal check)
 func receive_stomp() -> void:
 	sfx.play()
+	hide()
 	enemydied.emit()
+	await sfx.finished
 	queue_free()
 #endregion

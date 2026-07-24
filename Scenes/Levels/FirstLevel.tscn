@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dd0somvyjc0ko" path="res://Sprites/Tiles/Default/block_strong_empty_active.png" id="7_db0gg"]
 [ext_resource type="Texture2D" uid="uid://hvwi60neojxv" path="res://Sprites/Animated/health_anim.png" id="8_iahl5"]
 [ext_resource type="Script" uid="uid://bx1b2ve7kx3uh" path="res://Scripts/Levels/game_manager.gd" id="9_510ws"]
+[ext_resource type="AudioStream" uid="uid://ddpaph8f47rxy" path="res://Sounds/sfx_disappear.ogg" id="10_2iqbm"]
 [ext_resource type="Texture2D" uid="uid://c142leuehch1e" path="res://Spritesheets/spritesheet-tiles-default.png" id="10_uamca"]
 [ext_resource type="PackedScene" uid="uid://dsuoeyqr1tx41" path="res://Scenes/Entities/Bricks.tscn" id="11_m7yvq"]
 [ext_resource type="PackedScene" uid="uid://brq6fa2hjx23e" path="res://Scenes/Entities/Chanceblocks.tscn" id="12_r0ku2"]
@@ -1210,6 +1211,9 @@ script = ExtResource("9_510ws")
 wait_time = 5.0
 one_shot = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GameManager" unique_id=897796910]
+stream = ExtResource("10_2iqbm")
+
 [node name="BackgroundTileMap" type="TileMapLayer" parent="." unique_id=39232618]
 modulate = Color(0.76862043, 0.7014107, 0.6651851, 1)
 scale = Vector2(0.25, 0.25)
@@ -1272,7 +1276,7 @@ speed = 100.0
 dir = false
 
 [node name="Node2D" parent="Entities" unique_id=521319207 instance=ExtResource("20_uxvkj")]
-position = Vector2(1176, 200)
+position = Vector2(1880, 200)
 
 [node name="Platforms2" parent="Entities" unique_id=2142796631 instance=ExtResource("17_0w2n5")]
 position = Vector2(2360, 312)
@@ -1298,7 +1302,7 @@ position = Vector2(2536, 120)
 patrol_distance = 6
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=578781177]
-position = Vector2(1144, 168)
+position = Vector2(136, 200)
 
 [connection signal="pressed" from="HUD/DeathScreen/VBoxContainer/Respawn" to="GameManager" method="_on_button_pressed"]
 [connection signal="pressed" from="HUD/WinScreen/Layout/NextLevel" to="GameManager" method="_on_next_level_pressed"]

@@ -9,6 +9,7 @@ extends Node
 @onready var win_screen = get_node("../HUD/WinScreen")
 @onready var lives_sprite = $"../HUD/LivesSprite"
 @onready var spawn_point = $"../SpawnPoint"
+@onready var sfx = $AudioStreamPlayer2D
 #endregion
 
 #region State
@@ -78,6 +79,7 @@ func add_score(amount: int = 100) -> void:
 
 #region Death / lives
 func _on_player_died() -> void:
+	sfx.play()
 	death_screen.show()
 	death_anim.frame = 0
 	death_anim.play("default")

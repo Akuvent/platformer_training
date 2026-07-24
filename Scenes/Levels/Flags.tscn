@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bngme02r82rhq" path="res://Scripts/Levels/flags.gd" id="1_lgrqj"]
 [ext_resource type="Texture2D" uid="uid://dqqnwxlfy0pdb" path="res://Sprites/Tiles/Default/flag_green_a.png" id="2_w7crb"]
 [ext_resource type="Texture2D" uid="uid://n3kfpfmjja7d" path="res://Sprites/Tiles/Default/flag_green_b.png" id="3_lgrqj"]
+[ext_resource type="AudioStream" uid="uid://f0kutvh2b4mn" path="res://Sounds/victory_sJDDywi.mp3" id="5_jk3ho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tgsa"]
 size = Vector2(5, 62)
@@ -71,6 +72,9 @@ collision_mask = 3
 [node name="FlagCollision" type="CollisionShape2D" parent="FlagArea" unique_id=490218150]
 position = Vector2(7, -62)
 shape = SubResource("RectangleShape2D_ghsxf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=82125226]
+stream = ExtResource("5_jk3ho")
 
 [connection signal="body_entered" from="PoleArea" to="." method="_on_pole_area_body_entered"]
 [connection signal="body_entered" from="FlagArea" to="." method="_on_flag_area_body_entered"]
