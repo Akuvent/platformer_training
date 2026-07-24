@@ -8,6 +8,7 @@ extends Node
 @onready var death_anim = $"../HUD/DeathScreen/DeathAnim"
 @onready var win_screen = get_node("../HUD/WinScreen")
 @onready var lives_sprite = $"../HUD/LivesSprite"
+@onready var spawn_point = $"../SpawnPoint"
 #endregion
 
 #region State
@@ -26,16 +27,22 @@ func _ready() -> void:
 	lives_sprite.frame = GameState.lives
 	# TileMapLayer scene tiles spawn during their _ready — wire after that
 	call_deferred("_wire_level")
-	if GameState.has_checkpoint:
-		player.global_position = GameState.checkpoint
-	else:
-		player.global_position = GameState.default_spawn
 
 
 #region Wiring
 ## Connects coins, enemies, flag, and player anywhere under the level root
 func _wire_level() -> void:
 	_walk_and_wire(get_parent())
+	_place_player_at_spawn()
+
+
+func _place_player_at_spawn() -> void:
+	if player == null:
+		return
+	if GameState.has_checkpoint:
+		player.global_position = GameState.checkpoint
+	else:
+		player.global_position = spawn_point.global_position
 
 
 func _walk_and_wire(node: Node) -> void:

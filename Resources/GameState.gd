@@ -1,12 +1,12 @@
 extends Node
 ## Autoload — score and lives persist across scene reloads
 
+
 #region State
 var score: int = 0
 var lives: int = 3
 var checkpoint: Vector2 = Vector2.ZERO
 var has_checkpoint: bool = false
-var default_spawn := Vector2(136, 200)
 #endregion
 
 #region Level
