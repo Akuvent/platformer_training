@@ -1,45 +1,45 @@
-[gd_scene format=4 uid="uid://dvdwa466ohr1f"]
+[gd_scene format=4 uid="uid://d2exxclxa2pk6"]
 
-[ext_resource type="PackedScene" uid="uid://rxq6blndse5k" path="res://Scenes/Entities/Player.tscn" id="1_player"]
-[ext_resource type="Script" uid="uid://bx1b2ve7kx3uh" path="res://Scripts/Levels/game_manager.gd" id="2_gm"]
-[ext_resource type="Texture2D" uid="uid://bjkxgy6eqgu2w" path="res://Sprites/Tiles/Default/block_strong_empty.png" id="2_mv52a"]
-[ext_resource type="Texture2D" uid="uid://dd0somvyjc0ko" path="res://Sprites/Tiles/Default/block_strong_empty_active.png" id="3_otbr7"]
-[ext_resource type="Texture2D" uid="uid://c142leuehch1e" path="res://Spritesheets/spritesheet-tiles-default.png" id="3_tiles"]
-[ext_resource type="Texture2D" uid="uid://hvwi60neojxv" path="res://Sprites/Animated/health_anim.png" id="4_5wxa7"]
-[ext_resource type="Script" uid="uid://cmwobd5qo4n6a" path="res://Scripts/Levels/world_border.gd" id="4_wb"]
-[ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="5_enemy"]
-[ext_resource type="SpriteFrames" uid="uid://d26vpiunvgsmp" path="res://Resources/death_sprite_frames.tres" id="6_death"]
-[ext_resource type="PackedScene" uid="uid://cnl1tl7n760y7" path="res://Scenes/Entities/Coins.tscn" id="7_oi5um"]
-[ext_resource type="PackedScene" uid="uid://ckomh4tconqbm" path="res://Scenes/Levels/Platforms.tscn" id="7_r66ge"]
-[ext_resource type="PackedScene" uid="uid://brq6fa2hjx23e" path="res://Scenes/Entities/Chanceblocks.tscn" id="9_saai4"]
-[ext_resource type="PackedScene" uid="uid://dsuoeyqr1tx41" path="res://Scenes/Entities/Bricks.tscn" id="10_nl3m6"]
-[ext_resource type="PackedScene" uid="uid://cc0vx5ueklq5h" path="res://Scenes/Levels/Flags.tscn" id="13_otbr7"]
-[ext_resource type="PackedScene" uid="uid://mijcc1qwslvq" path="res://Scenes/Levels/Spikes.tscn" id="15_dm2qe"]
+[ext_resource type="SpriteFrames" uid="uid://d26vpiunvgsmp" path="res://Resources/death_sprite_frames.tres" id="1_hk4vc"]
+[ext_resource type="Texture2D" uid="uid://bjkxgy6eqgu2w" path="res://Sprites/Tiles/Default/block_strong_empty.png" id="2_wiu4c"]
+[ext_resource type="Texture2D" uid="uid://dd0somvyjc0ko" path="res://Sprites/Tiles/Default/block_strong_empty_active.png" id="3_3hula"]
+[ext_resource type="Texture2D" uid="uid://hvwi60neojxv" path="res://Sprites/Animated/health_anim.png" id="4_spq4p"]
+[ext_resource type="Script" uid="uid://bx1b2ve7kx3uh" path="res://Scripts/Levels/game_manager.gd" id="5_8fhce"]
+[ext_resource type="Texture2D" uid="uid://c142leuehch1e" path="res://Spritesheets/spritesheet-tiles-default.png" id="6_uqlrs"]
+[ext_resource type="Script" uid="uid://cmwobd5qo4n6a" path="res://Scripts/Levels/world_border.gd" id="7_htexa"]
+[ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="8_2oprd"]
+[ext_resource type="PackedScene" uid="uid://rxq6blndse5k" path="res://Scenes/Entities/Player.tscn" id="9_p6c81"]
+[ext_resource type="PackedScene" uid="uid://ckomh4tconqbm" path="res://Scenes/Levels/Platforms.tscn" id="10_xawdx"]
+[ext_resource type="PackedScene" uid="uid://brq6fa2hjx23e" path="res://Scenes/Entities/Chanceblocks.tscn" id="11_lty4u"]
+[ext_resource type="PackedScene" uid="uid://cnl1tl7n760y7" path="res://Scenes/Entities/Coins.tscn" id="12_efsfe"]
+[ext_resource type="PackedScene" uid="uid://cc0vx5ueklq5h" path="res://Scenes/Levels/Flags.tscn" id="13_et44u"]
+[ext_resource type="PackedScene" uid="uid://dsuoeyqr1tx41" path="res://Scenes/Entities/Bricks.tscn" id="14_rd2vd"]
+[ext_resource type="PackedScene" uid="uid://mijcc1qwslvq" path="res://Scenes/Levels/Spikes.tscn" id="15_snvte"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wxa7"]
-texture = ExtResource("2_mv52a")
+texture = ExtResource("2_wiu4c")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dm2qe"]
-texture = ExtResource("3_otbr7")
+texture = ExtResource("3_3hula")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv52a"]
-texture = ExtResource("2_mv52a")
+texture = ExtResource("2_wiu4c")
 modulate_color = Color(0.45262197, 0.45262197, 0.45262197, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wxa7"]
-atlas = ExtResource("4_5wxa7")
+atlas = ExtResource("4_spq4p")
 region = Rect2(576, 0, 192, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dm2qe"]
-atlas = ExtResource("4_5wxa7")
+atlas = ExtResource("4_spq4p")
 region = Rect2(384, 0, 192, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t65c0"]
-atlas = ExtResource("4_5wxa7")
+atlas = ExtResource("4_spq4p")
 region = Rect2(192, 0, 192, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnw2c"]
-atlas = ExtResource("4_5wxa7")
+atlas = ExtResource("4_spq4p")
 region = Rect2(0, 0, 192, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8nowq"]
@@ -63,7 +63,7 @@ animations = [{
 }]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otbr7"]
-texture = ExtResource("3_tiles")
+texture = ExtResource("6_uqlrs")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -710,7 +710,7 @@ grow_vertical = 2
 [node name="DeathAnim" type="AnimatedSprite2D" parent="HUD/DeathScreen" unique_id=877461447]
 position = Vector2(320, 180)
 scale = Vector2(2.5, 2.5)
-sprite_frames = ExtResource("6_death")
+sprite_frames = ExtResource("1_hk4vc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/DeathScreen" unique_id=1644645210]
 layout_mode = 2
@@ -745,7 +745,7 @@ grow_vertical = 2
 [node name="DeathAnim" type="AnimatedSprite2D" parent="HUD/WinScreen" unique_id=1014557772]
 position = Vector2(320, 180)
 scale = Vector2(2.5, 2.5)
-sprite_frames = ExtResource("6_death")
+sprite_frames = ExtResource("1_hk4vc")
 autoplay = "default"
 
 [node name="Layout" type="Control" parent="HUD/WinScreen" unique_id=1264476148]
@@ -826,7 +826,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8nowq")
 
 [node name="GameManager" type="Node" parent="." unique_id=1744229095]
-script = ExtResource("2_gm")
+script = ExtResource("5_8fhce")
 
 [node name="Timer" type="Timer" parent="GameManager" unique_id=155945609]
 wait_time = 5.0
@@ -843,7 +843,7 @@ position = Vector2(324, 364)
 collision_layer = 16
 collision_mask = 2
 monitorable = false
-script = ExtResource("4_wb")
+script = ExtResource("7_htexa")
 
 [node name="KillBox" type="CollisionShape2D" parent="WorldBorder" unique_id=671170159]
 position = Vector2(-12, 508)
@@ -851,84 +851,84 @@ shape = SubResource("RectangleShape2D_killbox")
 
 [node name="Entities" type="Node" parent="." unique_id=1360254456]
 
-[node name="Ennemy" parent="Entities" unique_id=1897001501 instance=ExtResource("5_enemy")]
+[node name="Ennemy" parent="Entities" unique_id=1897001501 instance=ExtResource("8_2oprd")]
 position = Vector2(624, 235)
 
-[node name="Player" parent="Entities" unique_id=45152738 instance=ExtResource("1_player")]
+[node name="Player" parent="Entities" unique_id=45152738 instance=ExtResource("9_p6c81")]
 position = Vector2(320, 180)
 
-[node name="Ennemy2" parent="Entities" unique_id=1515323907 instance=ExtResource("5_enemy")]
+[node name="Ennemy2" parent="Entities" unique_id=1515323907 instance=ExtResource("8_2oprd")]
 position = Vector2(593, 236)
 
 [node name="Interactables" type="Node" parent="." unique_id=2099605574]
 
-[node name="Platforms" parent="Interactables" unique_id=820448950 instance=ExtResource("7_r66ge")]
+[node name="Platforms" parent="Interactables" unique_id=820448950 instance=ExtResource("10_xawdx")]
 position = Vector2(712, 248)
 patrol_distance = 144.0
 
-[node name="ChanceBlock2" parent="Interactables" unique_id=1933089603 instance=ExtResource("9_saai4")]
+[node name="ChanceBlock2" parent="Interactables" unique_id=1933089603 instance=ExtResource("11_lty4u")]
 position = Vector2(312, 136)
 uses = 5
 
 [node name="Coins" type="Node" parent="Interactables" unique_id=2033073991]
 
-[node name="Coin3" parent="Interactables/Coins" unique_id=161642262 instance=ExtResource("7_oi5um")]
+[node name="Coin3" parent="Interactables/Coins" unique_id=161642262 instance=ExtResource("12_efsfe")]
 position = Vector2(152, 312)
 
-[node name="Coin4" parent="Interactables/Coins" unique_id=283741360 instance=ExtResource("7_oi5um")]
+[node name="Coin4" parent="Interactables/Coins" unique_id=283741360 instance=ExtResource("12_efsfe")]
 position = Vector2(120, 312)
 
-[node name="Coin5" parent="Interactables/Coins" unique_id=606486687 instance=ExtResource("7_oi5um")]
+[node name="Coin5" parent="Interactables/Coins" unique_id=606486687 instance=ExtResource("12_efsfe")]
 position = Vector2(136, 312)
 
-[node name="Coin6" parent="Interactables/Coins" unique_id=1000592915 instance=ExtResource("7_oi5um")]
+[node name="Coin6" parent="Interactables/Coins" unique_id=1000592915 instance=ExtResource("12_efsfe")]
 position = Vector2(152, 296)
 
-[node name="Coin7" parent="Interactables/Coins" unique_id=1718188183 instance=ExtResource("7_oi5um")]
+[node name="Coin7" parent="Interactables/Coins" unique_id=1718188183 instance=ExtResource("12_efsfe")]
 position = Vector2(136, 296)
 
-[node name="Coin8" parent="Interactables/Coins" unique_id=1936698492 instance=ExtResource("7_oi5um")]
+[node name="Coin8" parent="Interactables/Coins" unique_id=1936698492 instance=ExtResource("12_efsfe")]
 position = Vector2(120, 296)
 
-[node name="Coin9" parent="Interactables/Coins" unique_id=1124398707 instance=ExtResource("7_oi5um")]
+[node name="Coin9" parent="Interactables/Coins" unique_id=1124398707 instance=ExtResource("12_efsfe")]
 position = Vector2(120, 280)
 
-[node name="Coin10" parent="Interactables/Coins" unique_id=1121916151 instance=ExtResource("7_oi5um")]
+[node name="Coin10" parent="Interactables/Coins" unique_id=1121916151 instance=ExtResource("12_efsfe")]
 position = Vector2(136, 280)
 
-[node name="Coin11" parent="Interactables/Coins" unique_id=564058084 instance=ExtResource("7_oi5um")]
+[node name="Coin11" parent="Interactables/Coins" unique_id=564058084 instance=ExtResource("12_efsfe")]
 position = Vector2(152, 280)
 
-[node name="Coin2" parent="Interactables/Coins" unique_id=1423760497 instance=ExtResource("7_oi5um")]
+[node name="Coin2" parent="Interactables/Coins" unique_id=1423760497 instance=ExtResource("12_efsfe")]
 position = Vector2(264, 168)
 
-[node name="Coin" parent="Interactables/Coins" unique_id=878297205 instance=ExtResource("7_oi5um")]
+[node name="Coin" parent="Interactables/Coins" unique_id=878297205 instance=ExtResource("12_efsfe")]
 position = Vector2(552, 216)
 
-[node name="Flag" parent="Interactables" unique_id=1117614630 instance=ExtResource("13_otbr7")]
+[node name="Flag" parent="Interactables" unique_id=1117614630 instance=ExtResource("13_et44u")]
 position = Vector2(1048, 216)
 
 [node name="Bricks" type="Node" parent="Interactables" unique_id=1378393420]
 
-[node name="Brick" parent="Interactables/Bricks" unique_id=1331786134 instance=ExtResource("10_nl3m6")]
+[node name="Brick" parent="Interactables/Bricks" unique_id=1331786134 instance=ExtResource("14_rd2vd")]
 position = Vector2(296, 136)
 
-[node name="Brick2" parent="Interactables/Bricks" unique_id=1665629554 instance=ExtResource("10_nl3m6")]
+[node name="Brick2" parent="Interactables/Bricks" unique_id=1665629554 instance=ExtResource("14_rd2vd")]
 position = Vector2(328, 136)
 
-[node name="Brick3" parent="Interactables/Bricks" unique_id=98342869 instance=ExtResource("10_nl3m6")]
+[node name="Brick3" parent="Interactables/Bricks" unique_id=98342869 instance=ExtResource("14_rd2vd")]
 position = Vector2(376, 152)
 
-[node name="Brick4" parent="Interactables/Bricks" unique_id=947668481 instance=ExtResource("10_nl3m6")]
+[node name="Brick4" parent="Interactables/Bricks" unique_id=947668481 instance=ExtResource("14_rd2vd")]
 position = Vector2(232, 168)
 
-[node name="Spike" parent="Interactables" unique_id=1381799841 instance=ExtResource("15_dm2qe")]
+[node name="Spike" parent="Interactables" unique_id=1381799841 instance=ExtResource("15_snvte")]
 position = Vector2(760, 216)
 
-[node name="Spike2" parent="Interactables" unique_id=1507967410 instance=ExtResource("15_dm2qe")]
+[node name="Spike2" parent="Interactables" unique_id=1507967410 instance=ExtResource("15_snvte")]
 position = Vector2(552, 232)
 
-[node name="Spike3" parent="Interactables" unique_id=1875731194 instance=ExtResource("15_dm2qe")]
+[node name="Spike3" parent="Interactables" unique_id=1875731194 instance=ExtResource("15_snvte")]
 position = Vector2(680, 232)
 
 [connection signal="pressed" from="HUD/DeathScreen/VBoxContainer/Respawn" to="GameManager" method="_on_button_pressed"]
