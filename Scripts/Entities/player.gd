@@ -1,7 +1,7 @@
 extends Node2D
 @export var speed = 150
 @export var gravity = 980
-@export var jump_power = -400
+@export var jump_power = -460
 var fall_time = 0.0
 var max_fall_mult = 6.0
 var max_fall_speed = 1800
