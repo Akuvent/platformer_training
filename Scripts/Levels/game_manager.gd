@@ -63,6 +63,7 @@ func _on_flag_win():
 	if won:
 		return
 	won = true
+	score_label.hide()
 	win_screen.show()
 	add_score(500)
 	player.set_physics_process(false)
@@ -72,6 +73,7 @@ func _on_flag_super_win():
 	if won:
 		return
 	won = true
+	score_label.hide()
 	win_screen.show()
 	add_score(1000)
 	player.set_physics_process(false)
