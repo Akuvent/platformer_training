@@ -4,13 +4,19 @@ extends Node2D
 var is_spawning = false	
 var can_hit = true
 @export var uses = 1 
-@onready var game_manager = $"../../GameManager"
 @onready var off = $ChanceBlockBody/ChanceBlockOff
 @onready var on = $ChanceBlockBody/ChanceBlockOn
 
 
+func _game_manager() -> Node:
+	return get_tree().get_first_node_in_group("game_manager")
+
+
 func hit_from_below():
 	if is_spawning or uses == 0:
+		return
+	var game_manager = _game_manager()
+	if game_manager == null:
 		return
 	can_hit = false
 	uses -= 1
