@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://xpajphitmd1x"]
+
+[ext_resource type="Texture2D" uid="uid://bchhq24usxus3" path="res://Sprites/Tiles/Default/flag_red_a.png" id="1_bi0lg"]
+[ext_resource type="Texture2D" uid="uid://cjq80noawoho4" path="res://Sprites/Tiles/Default/flag_red_b.png" id="2_7dule"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi0lg"]
+size = Vector2(80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s20m7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bi0lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7dule")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=521319207]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1809662419]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1344428120]
+shape = SubResource("RectangleShape2D_bi0lg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=2059564803]
+sprite_frames = SubResource("SpriteFrames_s20m7")
+autoplay = "default"
+frame_progress = 0.4328569
