@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://im5m4xmwxrte" path="res://Scenes/Entities/ennemy.tscn" id="14_qwkk4"]
 [ext_resource type="PackedScene" uid="uid://rxq6blndse5k" path="res://Scenes/Entities/Player.tscn" id="15_rbqd7"]
 [ext_resource type="PackedScene" uid="uid://cc0vx5ueklq5h" path="res://Scenes/Levels/Flags.tscn" id="16_mqkt5"]
+[ext_resource type="PackedScene" uid="uid://ckomh4tconqbm" path="res://Scenes/Levels/Platforms.tscn" id="17_0w2n5"]
 [ext_resource type="PackedScene" uid="uid://mijcc1qwslvq" path="res://Scenes/Levels/Spikes.tscn" id="18_xxbcp"]
 [ext_resource type="Script" uid="uid://cmwobd5qo4n6a" path="res://Scripts/Levels/world_border.gd" id="19_478of"]
 
@@ -1273,6 +1274,9 @@ uses = 3
 position = Vector2(632, 104)
 uses = 3
 
+[node name="Flag" parent="Interactables" unique_id=1117614630 instance=ExtResource("16_mqkt5")]
+position = Vector2(2424, 152)
+
 [node name="Entities" type="Node" parent="." unique_id=1195552782]
 
 [node name="Ennemy" parent="Entities" unique_id=255993983 instance=ExtResource("14_qwkk4")]
@@ -1280,7 +1284,11 @@ position = Vector2(1320, 248)
 start_direction = 1
 
 [node name="Player" parent="Entities" unique_id=1716362057 instance=ExtResource("15_rbqd7")]
-position = Vector2(1144, 200)
+position = Vector2(2216, 200)
+
+[node name="Platforms" parent="Entities" unique_id=820448950 instance=ExtResource("17_0w2n5")]
+position = Vector2(2360, 168)
+speed = 100.0
 
 [connection signal="pressed" from="HUD/DeathScreen/VBoxContainer/Respawn" to="GameManager" method="_on_button_pressed"]
 [connection signal="pressed" from="HUD/WinScreen/Layout/NextLevel" to="GameManager" method="_on_next_level_pressed"]
