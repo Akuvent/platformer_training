@@ -1,6 +1,7 @@
 extends Node2D
-@export var speed = 80
-@export var max_player_velocity = 150
+@export var speed = 900
+@export var friction = 1800
+@export var max_player_velocity = 175
 @export var gravity = 980
 @export var jump_power = -460
 var fall_time = 0.0
@@ -36,8 +37,11 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction = 1
 		playerSprite.flip_h = true
-	player.velocity.x += direction * speed * air_mult
-	player.velocity.x = min(player.velocity.x, max_player_velocity)
+	if direction != 0:
+		player.velocity.x += direction * speed * air_mult * delta
+	else:
+		player.velocity.x = move_toward(player.velocity.x, 0.0, friction * delta)
+	player.velocity.x = clampf(player.velocity.x, -max_player_velocity, max_player_velocity)
 	if not was_on_floor:
 		coyote_timer -= delta
 		if player.velocity.y > 0:
