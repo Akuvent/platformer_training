@@ -5,6 +5,7 @@ extends Node2D
 @onready var enemysprite = $EnemyBody/BodyKillzone/Sprite2D
 @onready var stomp_area = $EnemyBody/Stomp
 @onready var stomp_shape = $EnemyBody/Stomp/CollisionShape2D
+@onready var body_shape = $EnemyBody/CollisionShape2D
 #endregion
 
 #region Movement
@@ -54,11 +55,6 @@ func _get_feet_y(body: CharacterBody2D) -> float:
 	return body.global_position.y
 
 
-## Top of the enemy body (collider is 8px tall, centered)
-func _get_enemy_top_y() -> float:
-	return enemy.global_position.y - 4.0
-
-
 ## True if the player is landing on top (not a side bump)
 func _is_player_stomping(body: CharacterBody2D) -> bool:
 	var player: Node = body.get_parent()
@@ -68,18 +64,17 @@ func _is_player_stomping(body: CharacterBody2D) -> bool:
 	if not descending:
 		return false
 
-	# Must be above the enemy — blocks side bumps
-	if body.global_position.y >= enemy.global_position.y:
-		return false
-
 	# Mostly centered horizontally over the stomp box
 	var stomp_half_w: float = stomp_shape.shape.get_rect().size.x * 0.5 * abs(stomp_shape.global_scale.x)
 	if abs(body.global_position.x - enemy.global_position.x) > stomp_half_w + 6.0:
 		return false
 
-	# Loose feet check so sinking into a falling enemy still counts
-	var feet_y: float = _get_feet_y(body)
-	if feet_y > _get_enemy_top_y() + 12.0:
+	# High falls tunnel through in one frame — don't require the player to still be
+	# visually "above" after the clip. Only reject if feet are clearly under the enemy.
+	var half_h: float = body_shape.shape.get_rect().size.y * 0.5 * abs(enemy.global_scale.y)
+	var enemy_bottom: float = enemy.global_position.y + half_h
+	var fall_slop: float = 4.0 + maxf(body.velocity.y, 0.0) * 0.1
+	if _get_feet_y(body) > enemy_bottom + fall_slop:
 		return false
 
 	return true
