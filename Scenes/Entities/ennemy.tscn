@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://busfnht7vxnbl" path="res://Scripts/Entities/ennemy.gd" id="1_k18kc"]
 [ext_resource type="Texture2D" uid="uid://ne3rxmvjvquo" path="res://Sprites/Enemies/paschillguy.png" id="2_lx24l"]
+[ext_resource type="AudioStream" uid="uid://d05q7p5h7jlby" path="res://Sounds/sfx_bump.ogg" id="3_lx24l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3s3n"]
 size = Vector2(12, 6)
@@ -20,3 +21,6 @@ shape = SubResource("RectangleShape2D_b3s3n")
 position = Vector2(0, -1)
 scale = Vector2(0.048, 0.032)
 texture = ExtResource("2_lx24l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EnemyBody" unique_id=1618412218]
+stream = ExtResource("3_lx24l")

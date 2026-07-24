@@ -3,6 +3,7 @@ extends Node2D
 #region Nodes
 @onready var enemy = $EnemyBody
 @onready var enemysprite = $EnemyBody/Sprite2D
+@onready var sfx = $EnemyBody/AudioStreamPlayer2D
 #endregion
 
 #region Movement
@@ -57,6 +58,7 @@ func _physics_process(delta):
 #region Combat
 ## Called by the player when they land on top (slide normal check)
 func receive_stomp() -> void:
+	sfx.play()
 	enemydied.emit()
 	queue_free()
 #endregion

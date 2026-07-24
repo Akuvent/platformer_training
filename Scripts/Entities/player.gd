@@ -1,12 +1,14 @@
 extends Node2D
 
+@onready var sfx = $PlayerBody/PlayerSounds
+
 #region Exports
 @export var speed = 900 ## Horizontal acceleration
 @export var friction = 1600 ## How fast we slow down when no input
 @export var max_player_velocity = 175 ## Top run speed
 @export var gravity = 980
 @export var jump_power = -460 ## Negative = up
-@export var air_mult = 1 ## Extra move control while airborne
+@export var air_mult = 1.2 ## Extra move control while airborne
 #endregion
 
 #region State
@@ -71,6 +73,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and (was_on_floor or coyote_timer > 0):
 		player.velocity.y = jump_power
 		coyote_timer = 0
+		sfx.play()
 		_squash_stretch(Vector2(0.75, 1.25), 0.08)
 	elif was_on_floor and not Input.is_action_just_pressed("jump") and not stomp_bounce:
 		# Grounded: reset fall state and refresh coyote window

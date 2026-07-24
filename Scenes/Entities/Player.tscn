@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6sgxtc1klbl4" path="res://Scripts/Entities/player.gd" id="1_v402d"]
 [ext_resource type="Texture2D" uid="uid://dmud1evm8c4hq" path="res://Sprites/player.png" id="2_v402d"]
 [ext_resource type="Script" uid="uid://ctc3j2an0146w" path="res://Scripts/Entities/camera_2d.gd" id="3_agccv"]
+[ext_resource type="AudioStream" uid="uid://dyyv60p8sxj7r" path="res://Sounds/sfx_jump.ogg" id="4_g4oe6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v402d"]
 
@@ -30,3 +31,6 @@ zoom = Vector2(1.5, 1.5)
 limit_top = -9999970
 position_smoothing_enabled = true
 script = ExtResource("3_agccv")
+
+[node name="PlayerSounds" type="AudioStreamPlayer2D" parent="PlayerBody" unique_id=1486838858]
+stream = ExtResource("4_g4oe6")
