@@ -1284,7 +1284,7 @@ position = Vector2(1320, 248)
 start_direction = 1
 
 [node name="Player" parent="Entities" unique_id=1716362057 instance=ExtResource("15_rbqd7")]
-position = Vector2(2216, 200)
+position = Vector2(136, 200)
 
 [node name="Platforms" parent="Entities" unique_id=820448950 instance=ExtResource("17_0w2n5")]
 position = Vector2(2360, 168)

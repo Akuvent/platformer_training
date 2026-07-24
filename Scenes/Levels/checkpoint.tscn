@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://xpajphitmd1x"]
 
+[ext_resource type="Script" uid="uid://opn044mfdgcx" path="res://Scenes/Levels/checkpoint.gd" id="1_7dule"]
 [ext_resource type="Texture2D" uid="uid://bchhq24usxus3" path="res://Sprites/Tiles/Default/flag_red_a.png" id="1_bi0lg"]
 [ext_resource type="Texture2D" uid="uid://cjq80noawoho4" path="res://Sprites/Tiles/Default/flag_red_b.png" id="2_7dule"]
 
@@ -21,6 +22,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D" unique_id=521319207]
+script = ExtResource("1_7dule")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1809662419]
 collision_layer = 2
@@ -32,4 +34,6 @@ shape = SubResource("RectangleShape2D_bi0lg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=2059564803]
 sprite_frames = SubResource("SpriteFrames_s20m7")
 autoplay = "default"
-frame_progress = 0.4328569
+frame_progress = 0.50896084
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

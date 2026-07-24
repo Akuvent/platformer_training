@@ -26,6 +26,10 @@ func _ready() -> void:
 	lives_sprite.frame = GameState.lives
 	# TileMapLayer scene tiles spawn during their _ready — wire after that
 	call_deferred("_wire_level")
+	if GameState.has_checkpoint:
+		player.global_position = GameState.checkpoint
+	else:
+		player.global_position = GameState.default_spawn
 
 
 #region Wiring
@@ -86,6 +90,8 @@ func death() -> void:
 	if GameState.lives == 0:
 		GameState.reset()
 	get_tree().reload_current_scene()
+	
+
 #endregion
 
 
