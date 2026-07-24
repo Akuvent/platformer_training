@@ -4,6 +4,8 @@ extends Node
 #region State
 var score: int = 0
 var lives: int = 3
+var checkpoint: Vector2 = Vector2.ZERO  # or null / has_checkpoint flag
+var default_spawn: Vector2  # set once from the placed player, or a Spawn marker
 #endregion
 
 
