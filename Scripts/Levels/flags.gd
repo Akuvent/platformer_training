@@ -1,16 +1,19 @@
 extends Node2D
-signal win
-signal super_win
+## End-of-level goal
 
+signal win ## Pole touch — normal win
+signal super_win ## Flag top touch — bonus win
+
+
+#region Triggers
 func _on_pole_area_body_entered(body):
 	if not body.is_in_group("Player"):
 		return
-	else:
-		win.emit()
-		
+	win.emit()
+
 
 func _on_flag_area_body_entered(body):
 	if not body.is_in_group("Player"):
 		return
-	else:
-		super_win.emit()
+	super_win.emit()
+#endregion

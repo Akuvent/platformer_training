@@ -1,4 +1,6 @@
 extends Node2D
+## Breakable brick — destroyed when hit from below
+
 var can_hit = true
 
 
