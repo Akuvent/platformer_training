@@ -21,7 +21,7 @@ signal died
 func _ready():
 	base_sprite_scale = playerSprite.scale
 
-
+ 
 func _physics_process(delta):
 	var direction = 0
 	var was_on_floor = player.is_on_floor()

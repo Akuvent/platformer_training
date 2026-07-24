@@ -3,6 +3,7 @@ extends Node
 @onready var death_screen = get_node("../HUD/DeathScreen")
 @onready var death_timer = $Timer
 @onready var score_label = $"../HUD/score"
+@onready var final_score = $"../HUD/WinScreen/Layout/WinTitle/score"
 @onready var death_anim = $"../HUD/DeathScreen/DeathAnim"
 @onready var win_screen = get_node("../HUD/WinScreen")
 @onready var lives_sprite = $"../HUD/LivesSprite"
@@ -21,6 +22,7 @@ func _ready():
 
 func _sync_score_label() -> void:
 	score_label.text = "Score: " + str(GameState.score)
+	final_score.text = "Final score: " + str(GameState.score)
 
 
 func add_score(amount: int = 100) -> void:
