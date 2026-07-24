@@ -7,6 +7,7 @@ func _on_area_2d_body_entered(body):
 	if not body.is_in_group("Player"):
 		return
 	GameState.set_checkpoint(global_position)
+	GameState.lives = 3
 	if used == false:
 		sfx.play()
 	used = true

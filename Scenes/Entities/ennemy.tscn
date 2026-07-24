@@ -12,7 +12,7 @@ script = ExtResource("1_k18kc")
 
 [node name="EnemyBody" type="CharacterBody2D" parent="." unique_id=1984411229]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody" unique_id=1817699251]
 shape = SubResource("RectangleShape2D_b3s3n")
