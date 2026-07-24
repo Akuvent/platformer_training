@@ -1,6 +1,6 @@
 extends Node2D
 @export var speed = 900
-@export var friction = 1800
+@export var friction = 1600
 @export var max_player_velocity = 175
 @export var gravity = 980
 @export var jump_power = -460

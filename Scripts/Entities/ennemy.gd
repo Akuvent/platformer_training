@@ -29,43 +29,50 @@ func _get_feet_y(body: CharacterBody2D) -> float:
 			return body.global_position.y + half_h
 	return body.global_position.y
 
-func _get_stomp_bottom_y() -> float:
-	var half_h: float = stomp_shape.shape.get_rect().size.y * 0.5 * abs(stomp_shape.global_scale.y)
-	return stomp_shape.global_position.y + half_h
+func _get_enemy_top_y() -> float:
+	# Enemy body collider is 8px tall, centered on EnemyBody.
+	return enemy.global_position.y - 4.0
 
 func _is_player_stomping(body: CharacterBody2D) -> bool:
-	if not stomp_area.overlaps_body(body):
-		return false
-
 	var player: Node = body.get_parent()
-	var descending: bool = body.velocity.y > 0 or player.was_falling
+	# Absolute fall, or falling faster than the enemy (airborne enemy case).
+	var relative_vy: float = body.velocity.y - enemy.velocity.y
+	var descending: bool = body.velocity.y > 0 or player.was_falling or relative_vy > 0.0
 	if not descending:
 		return false
 
-	var feet_y: float = _get_feet_y(body)
-	var stomp_bottom: float = _get_stomp_bottom_y()
-	if feet_y > stomp_bottom + 8.0:
+	# Must be above the enemy — blocks side bumps.
+	if body.global_position.y >= enemy.global_position.y:
 		return false
 
-	# Side bumps still touch the wide stomp box — require mostly centered above.
 	var stomp_half_w: float = stomp_shape.shape.get_rect().size.x * 0.5 * abs(stomp_shape.global_scale.x)
 	if abs(body.global_position.x - enemy.global_position.x) > stomp_half_w + 6.0:
 		return false
 
+	# Loose feet check so sinking into a falling enemy still counts as a stomp.
+	var feet_y: float = _get_feet_y(body)
+	if feet_y > _get_enemy_top_y() + 12.0:
+		return false
+
 	return true
+
+func _stomp(body: CharacterBody2D) -> void:
+	body.get_parent().bounce()
+	enemydied.emit()
+	queue_free()
 
 func _on_stomp_body_entered(body):
 	if not body.is_in_group("Player"):
 		return
 	if not _is_player_stomping(body):
 		return
-	body.get_parent().bounce()
-	enemydied.emit()
-	queue_free()
+	_stomp(body)
 
 func _on_body_killzone_body_entered(body):
 	if not body.is_in_group("Player"):
 		return
+	# Killzone often fires first when both fall — still treat as stomp if on top.
 	if _is_player_stomping(body):
+		_stomp(body)
 		return
 	body.get_parent().die()
